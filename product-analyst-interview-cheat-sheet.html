@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Analyst Interview Cheat Sheet</title>
+  <style>
+    :root {
+      --bg: #0d1014;
+      --panel: #141922;
+      --panel-2: #10151d;
+      --border: rgba(220, 228, 242, 0.12);
+      --border-strong: rgba(220, 228, 242, 0.2);
+      --text: #f3f6fb;
+      --muted: #99a4b4;
+      --accent: #c8d4e7;
+      --flow-bg: rgba(200, 212, 231, 0.08);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      --page-width: 1180px;
+      --font-size: 15px;
+      --line-height: 1.45;
+      --radius: 14px;
+    }
+
+    body[data-size="large"] {
+      --font-size: 17px;
+      --line-height: 1.55;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(200, 212, 231, 0.08), transparent 26%),
+        linear-gradient(180deg, #0b0e12 0%, #0d1014 100%);
+      letter-spacing: 0.01em;
+    }
+
+    .shell {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 18px 18px 28px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+      border-radius: 0 0 16px 16px;
+      background: rgba(11, 14, 18, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .title-wrap {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: 3px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    button {
+      border: 1px solid var(--border-strong);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background: #1a2130;
+      border-color: rgba(220, 228, 242, 0.3);
+      outline: none;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    details.card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(20, 25, 34, 0.98), rgba(16, 21, 29, 0.98));
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    details[open] {
+      border-color: rgba(220, 228, 242, 0.18);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .section-number {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .chevron {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: transform 0.18s ease;
+    }
+
+    details[open] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .content {
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .label {
+      display: inline-block;
+      margin: 14px 0 8px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .prompt,
+    .sub-prompt,
+    .tip-line {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 4px 0;
+      color: #e8edf6;
+    }
+
+    .flow {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--flow-bg);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      word-spacing: 0.12em;
+    }
+
+    .memory {
+      color: #ffffff;
+    }
+
+    .quick-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      columns: 2;
+      column-gap: 18px;
+    }
+
+    .quick-list li {
+      break-inside: avoid;
+      margin: 0 0 8px;
+    }
+
+    .sub-block {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .question-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .question-item {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .question-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .span-2 {
+      grid-column: span 2;
+    }
+
+    .print-note {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .span-2 {
+        grid-column: span 1;
+      }
+
+      .quick-list {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: 12px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 0 0 12px 12px;
+      }
+
+      .controls {
+        justify-content: flex-start;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --panel: #ffffff;
+        --panel-2: #ffffff;
+        --border: rgba(0, 0, 0, 0.16);
+        --border-strong: rgba(0, 0, 0, 0.26);
+        --text: #111111;
+        --muted: #555555;
+        --accent: #222222;
+        --flow-bg: rgba(0, 0, 0, 0.03);
+        --shadow: none;
+      }
+
+      body {
+        background: #ffffff;
+        color: #111111;
+      }
+
+      .topbar {
+        position: static;
+        background: #ffffff;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0 0 12px;
+        margin-bottom: 12px;
+      }
+
+      .controls {
+        display: none;
+      }
+
+      .grid {
+        gap: 10px;
+      }
+
+      details.card {
+        break-inside: avoid;
+        box-shadow: none;
+        background: #ffffff;
+      }
+
+      details.card .content {
+        display: block;
+      }
+
+      details.card summary {
+        pointer-events: none;
+      }
+
+      .print-note {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body data-size="normal">
+  <div class="shell">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>Product Analyst Interview Cheat Sheet</h1>
+        <div class="subtitle">Quick Scan Version</div>
+        <div class="print-note">Print view expands all sections automatically.</div>
+      </div>
+      <div class="controls">
+        <button type="button" id="toggleSize">Text Size: Standard</button>
+        <button type="button" id="expandAll">Expand All</button>
+        <button type="button" id="collapseAll">Collapse All</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <details class="card span-2" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">Quick</span>
+            <span class="section-name">Likely Questions</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Tomorrow Focus</div>
+          <ul class="quick-list">
+            <li>Tell me about yourself</li>
+            <li>What does a Product Analyst do?</li>
+            <li>How would you analyse the performance of a learning product?</li>
+            <li>How do you identify user engagement problems?</li>
+            <li>What metrics would you track for a digital learning platform?</li>
+            <li>Tell us about a time you used data to support a decision</li>
+            <li>How do you translate data into insights for non-technical stakeholders?</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">01</span>
+            <span class="section-name">Tell Me About Yourself</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">Tell me about yourself</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li><strong><em>Product and business analysis</em></strong> background</li>
+            <li>Worked on <strong><em>digital platforms</em></strong> and business problems</li>
+            <li>Analyse <strong><em>user behaviour</em></strong>, product performance, and market opportunities</li>
+            <li>Upskilled in <strong><em>data science</em></strong> to strengthen analytics</li>
+            <li>Focus on using <strong><em>data to support product decisions</em></strong></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">02</span>
+            <span class="section-name">What Does A Product Analyst Do?</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">What does a Product Analyst do?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Analyse <strong><em>product data</em></strong></li>
+            <li>Understand <strong><em>user behaviour</em></strong></li>
+            <li>Track <strong><em>performance and engagement</em></strong></li>
+            <li>Generate <strong><em>insights</em></strong></li>
+            <li>Support <strong><em>product decisions</em></strong></li>
+          </ul>
+          <div class="flow">Data -&gt; Users -&gt; Insights -&gt; Decisions</div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">03</span>
+            <span class="section-name">How Do You Analyse A Product?</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">How do you analyse a product?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Start with the <strong><em>product objective</em></strong></li>
+            <li>Define <strong><em>key metrics</em></strong></li>
+            <li>Map the <strong><em>user journey</em></strong></li>
+            <li>Identify <strong><em>engagement and drop-offs</em></strong></li>
+            <li>Find <strong><em>insights</em></strong></li>
+            <li>Recommend <strong><em>improvements</em></strong></li>
+          </ul>
+          <div class="flow">Objective -&gt; Metrics -&gt; Journey -&gt; Insights</div>
+          <div class="sub-block">
+            <div class="label">Direct Interview Version</div>
+            <p class="sub-prompt">How would you analyse the performance of a learning product?</p>
+            <ul>
+              <li>Start with the <strong><em>goal of the product</em></strong></li>
+              <li>Choose the right <strong><em>success metrics</em></strong></li>
+              <li>Track the full <strong><em>learner journey</em></strong></li>
+              <li>Check where users <strong><em>engage or drop off</em></strong></li>
+              <li>Turn findings into <strong><em>clear recommendations</em></strong></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">04</span>
+            <span class="section-name">LMS Product Metrics</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">What metrics would you track?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li><strong><em>Engagement rate</em></strong></li>
+            <li><strong><em>Completion rate</em></strong></li>
+            <li><strong><em>Enrollment rate</em></strong></li>
+            <li><strong><em>Drop-off rate</em></strong></li>
+            <li><strong><em>Retention</em></strong></li>
+            <li><strong><em>Activation</em></strong></li>
+            <li><strong><em>Customer satisfaction</em></strong></li>
+          </ul>
+          <div class="flow">Engagement -&gt; Completion -&gt; Growth -&gt; Retention</div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">05</span>
+            <span class="section-name">Tools Workflow</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">What tools do you use?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>SQL -&gt; extract data</li>
+            <li>Python / Excel -&gt; analyse data</li>
+            <li>Power BI -&gt; dashboards and reporting</li>
+          </ul>
+          <div class="flow">SQL -&gt; Python/Excel -&gt; Power BI</div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">06</span>
+            <span class="section-name">Skills Workflow</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">How do you usually work with data?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li><strong><em>Clean</em></strong> data</li>
+            <li><strong><em>Explore</em></strong> data</li>
+            <li><strong><em>Analyse trends</em></strong></li>
+            <li>Track <strong><em>KPIs</em></strong></li>
+            <li>Build <strong><em>dashboards</em></strong></li>
+            <li>Report <strong><em>insights</em></strong></li>
+          </ul>
+          <div class="flow">Clean -&gt; Explore -&gt; Analyse -&gt; Report</div>
+          <div class="sub-block">
+            <div class="label">Direct Interview Version</div>
+            <p class="sub-prompt">How do you translate data into insights for non-technical stakeholders?</p>
+            <ul>
+              <li>Start with the <strong><em>business question</em></strong></li>
+              <li>Keep the message <strong><em>simple and clear</em></strong></li>
+              <li>Focus on the <strong><em>key metric and what changed</em></strong></li>
+              <li>Explain <strong><em>why it matters</em></strong> to the business</li>
+              <li>End with a <strong><em>practical recommendation</em></strong></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="card span-2" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">07</span>
+            <span class="section-name">Example Project Story</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">Tell us about a project you worked on</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Worked on <strong><em>SuccessorX</em></strong>, a digital estate planning product</li>
+            <li>The goal was to test <strong><em>viability and market potential</em></strong></li>
+            <li>Analysed <strong><em>market data and user behaviour</em></strong></li>
+            <li>Did <strong><em>TAM / SAM / SOM</em></strong> analysis</li>
+            <li>Defined <strong><em>KPIs</em></strong> and financial scenarios</li>
+            <li>Identified <strong><em>customer segments</em></strong></li>
+            <li>Supported <strong><em>pricing and positioning</em></strong> decisions</li>
+          </ul>
+          <div class="sub-block">
+            <div class="label">What KPIs did you define?</div>
+            <ul>
+              <li><strong><em>Customer acquisition</em></strong></li>
+              <li><strong><em>Conversion rate</em></strong></li>
+              <li><strong><em>Engagement</em></strong></li>
+              <li><strong><em>Product adoption</em></strong></li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="label">Direct Interview Version</div>
+            <p class="sub-prompt">Tell us about a time you used data to support a decision</p>
+            <ul>
+              <li>I used <strong><em>market and user data</em></strong> to assess the product opportunity</li>
+              <li>I defined <strong><em>KPIs and financial scenarios</em></strong></li>
+              <li>The analysis helped shape <strong><em>pricing, targeting, and positioning</em></strong></li>
+              <li>That supported a more informed <strong><em>business decision</em></strong></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">08</span>
+            <span class="section-name">Support Marketing Or Sales</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">How would you support marketing or sales using product analytics?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Identify high-value customer segments</li>
+            <li>Show what users engage with most</li>
+            <li>Track conversion and product usage</li>
+            <li>Help marketing refine targeting</li>
+            <li>Help sales communicate value with real data</li>
+            <li>Support go-to-market decisions</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">09</span>
+            <span class="section-name">Learner Engagement And Completion</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">How would you analyse learner engagement and completion?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Track <strong><em>learner journey metrics</em></strong></li>
+            <li>Measure <strong><em>logins, lesson views, and module completion</em></strong></li>
+            <li>Find <strong><em>drop-off points</em></strong></li>
+            <li>Compare <strong><em>learner groups</em></strong></li>
+            <li>Identify <strong><em>friction points</em></strong></li>
+            <li>Recommend <strong><em>product improvements</em></strong></li>
+          </ul>
+          <div class="sub-block">
+            <div class="label">Direct Interview Version</div>
+            <p class="sub-prompt">How do you identify user engagement problems?</p>
+            <ul>
+              <li>Look at where users <strong><em>stop engaging</em></strong></li>
+              <li>Check for low <strong><em>clicks, views, or completion</em></strong></li>
+              <li>Compare behaviour across <strong><em>different user groups</em></strong></li>
+              <li>Find the main <strong><em>drop-off point</em></strong></li>
+              <li>Use that to suggest a <strong><em>fix or test</em></strong></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">10</span>
+            <span class="section-name">Support A Product Launch Using Data</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Question</div>
+          <p class="prompt">How would you support a product launch using data?</p>
+          <div class="label">Answer</div>
+          <ul>
+            <li>Define success metrics before launch</li>
+            <li>Track sign-ups and activation during launch</li>
+            <li>Monitor onboarding and early engagement</li>
+            <li>Analyse retention after launch</li>
+            <li>Recommend improvements</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">11</span>
+            <span class="section-name">Important Interview Tip</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="label">Tip</div>
+          <p class="tip-line">Keep the cheat sheet slightly to the side of the camera</p>
+          <ul>
+            <li>Glance naturally</li>
+            <li>Do not read word for word</li>
+            <li>Use it for structure only</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">12</span>
+            <span class="section-name">Questions You Should Ask Them</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <div class="question-list">
+            <div class="question-item">
+              <strong>Question 1</strong>
+              What are the key metrics you currently use to measure the success of your digital programmes?
+            </div>
+            <div class="question-item">
+              <strong>Question 2</strong>
+              What are the biggest challenges the product team is currently trying to solve?
+            </div>
+            <div class="question-item">
+              <strong>Question 3</strong>
+              How does the Product Analyst usually work with product managers and other teams?
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="card span-2" open>
+        <summary>
+          <div class="section-title">
+            <span class="section-number">13</span>
+            <span class="section-name">Final Reminders</span>
+          </div>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="content">
+          <ul>
+            <li><strong><em>Speak slowly</em></strong></li>
+            <li>Keep answers <strong><em>structured</em></strong></li>
+            <li>Focus on <strong><em>business value</em></strong></li>
+            <li>Do not <strong><em>over-explain</em></strong></li>
+            <li><strong><em>Confidence over perfection</em></strong></li>
+          </ul>
+        </div>
+      </details>
+    </main>
+  </div>
+
+  <script>
+    const body = document.body;
+    const cards = Array.from(document.querySelectorAll('details.card'));
+    const toggleSizeButton = document.getElementById('toggleSize');
+    const expandAllButton = document.getElementById('expandAll');
+    const collapseAllButton = document.getElementById('collapseAll');
+
+    toggleSizeButton.addEventListener('click', () => {
+      const isLarge = body.dataset.size === 'large';
+      body.dataset.size = isLarge ? 'normal' : 'large';
+      toggleSizeButton.textContent = isLarge ? 'Text Size: Standard' : 'Text Size: Large';
+    });
+
+    expandAllButton.addEventListener('click', () => {
+      cards.forEach((card) => {
+        card.open = true;
+      });
+    });
+
+    collapseAllButton.addEventListener('click', () => {
+      cards.forEach((card) => {
+        card.open = false;
+      });
+    });
+  </script>
+</body>
+</html>
