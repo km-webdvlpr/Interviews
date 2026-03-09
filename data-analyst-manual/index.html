@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analyst Field Manual</title>
+  <style>
+    :root {
+      --bg: #0f1718;
+      --panel: rgba(16, 27, 29, 0.9);
+      --panel-strong: #172628;
+      --panel-soft: rgba(34, 51, 54, 0.72);
+      --line: rgba(245, 226, 183, 0.14);
+      --line-strong: rgba(245, 226, 183, 0.28);
+      --text: #f8f1dc;
+      --muted: #c9bfaa;
+      --accent: #efc169;
+      --accent-2: #d86b49;
+      --accent-3: #8fbf8f;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(216, 107, 73, 0.18), transparent 24%),
+        radial-gradient(circle at top right, rgba(143, 191, 143, 0.13), transparent 28%),
+        linear-gradient(180deg, #081112 0%, #0f1718 100%);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 16px 80px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 22px 18px 20px;
+      background:
+        linear-gradient(145deg, rgba(216, 107, 73, 0.15), transparent 35%),
+        linear-gradient(180deg, rgba(23, 38, 40, 0.98), rgba(12, 21, 22, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(239, 193, 105, 0.05) 92% 100%),
+        linear-gradient(0deg, transparent 0 92%, rgba(239, 193, 105, 0.05) 92% 100%);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(248, 241, 220, 0.04);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(2.1rem, 7vw, 4.2rem);
+      line-height: 0.98;
+      max-width: 10ch;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      max-width: 44rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-chip,
+    .note,
+    .mini-card,
+    details.card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-chip {
+      border-radius: 18px;
+      padding: 12px;
+    }
+
+    .hero-chip strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 12px 0 14px;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(15, 23, 24, 0.96), rgba(15, 23, 24, 0.74));
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(248, 241, 220, 0.03);
+      color: var(--muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+      border-color: var(--line-strong);
+      outline: none;
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .note,
+    .mini-card {
+      border-radius: 22px;
+      padding: 16px;
+    }
+
+    .note strong,
+    .mini-card strong,
+    .list-title,
+    .tiny-title {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .note p,
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .big-line {
+      font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+      color: var(--text);
+      line-height: 1.28;
+    }
+
+    .memory {
+      color: var(--text);
+      background: linear-gradient(120deg, rgba(239, 193, 105, 0.22), rgba(239, 193, 105, 0));
+      padding: 0 4px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    details.card {
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    details.card[open] {
+      border-color: var(--line-strong);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 16px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .summary-title {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .summary-title span:first-child {
+      color: var(--accent);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .summary-title span:last-child {
+      font-size: 1.16rem;
+      font-weight: 700;
+    }
+
+    .arrow {
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] .arrow {
+      transform: rotate(180deg);
+    }
+
+    .content {
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .content p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 8px 0;
+      line-height: 1.45;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .flow span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(248, 241, 220, 0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    .flow span::after {
+      content: "→";
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .flow span:last-child::after {
+      content: "";
+      margin: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(143, 191, 143, 0.1);
+      border: 1px solid rgba(143, 191, 143, 0.18);
+      color: #d8ecd8;
+      font-size: 0.84rem;
+    }
+
+    .panel-band {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(216, 107, 73, 0.14), transparent 45%),
+        linear-gradient(180deg, rgba(23, 38, 40, 0.98), rgba(16, 27, 29, 0.98));
+      box-shadow: var(--shadow);
+    }
+
+    .panel-band p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(248, 241, 220, 0.03);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .footer strong {
+      color: var(--text);
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero,
+    .section,
+    .footer {
+      animation: rise 0.55s ease both;
+    }
+
+    .section:nth-of-type(2) { animation-delay: 0.06s; }
+    .section:nth-of-type(3) { animation-delay: 0.12s; }
+    .section:nth-of-type(4) { animation-delay: 0.18s; }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .span-3,
+      .span-4,
+      .span-5,
+      .span-6,
+      .span-7,
+      .span-8 {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 12px 12px 72px;
+      }
+
+      .hero {
+        padding: 18px 14px;
+        border-radius: 24px;
+      }
+
+      .nav {
+        padding-top: 10px;
+      }
+
+      summary {
+        padding: 14px;
+      }
+
+      .content {
+        padding: 0 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Remember the roots</div>
+      <h1>Data Analyst Field Manual</h1>
+      <p>
+        A quick-read guide for <span class="memory">what you do</span>, <span class="memory">how you think</span>,
+        and <span class="memory">why your work matters</span>. Built from your BrightLight notes, then reshaped into
+        a mobile-friendly manual with African context, real-world examples, and fast-scan sections.
+      </p>
+      <div class="hero-grid">
+        <div class="hero-chip">
+          <strong>Your Core Job</strong>
+          Turn raw data into clear business direction.
+        </div>
+        <div class="hero-chip">
+          <strong>Your Daily Lens</strong>
+          Ask what happened, why, what may happen next, and what should be done.
+        </div>
+        <div class="hero-chip">
+          <strong>Your Real Value</strong>
+          Help teams make smarter decisions with evidence, not guesswork.
+        </div>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a href="#identity">Identity</a>
+      <a href="#analysis-types">Analysis Types</a>
+      <a href="#skill-stack">Skills</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#career">Career Path</a>
+      <a href="#roots">Roots</a>
+    </nav>
+
+    <section class="section" id="identity">
+      <div class="section-head">
+        <h2>What You Actually Do</h2>
+        <p>Quick meaning, no fluff.</p>
+      </div>
+      <div class="grid">
+        <div class="note span-4">
+          <strong>Simple Definition</strong>
+          <p class="big-line">A data analyst collects, cleans, studies, and explains data so people can make better decisions.</p>
+        </div>
+        <div class="note span-4">
+          <strong>In Plain Language</strong>
+          <p>You turn messy numbers into a story the business can use. You help teams move from <span class="memory">confusion</span> to <span class="memory">clarity</span>.</p>
+        </div>
+        <div class="note span-4">
+          <strong>What Makes You Useful</strong>
+          <p>You do not just make charts. You find <span class="memory">patterns</span>, explain <span class="memory">causes</span>, and support <span class="memory">action</span>.</p>
+        </div>
+        <div class="panel-band span-12">
+          <strong class="tiny-title">Mindset</strong>
+          <p>
+            Think like someone standing in a busy market, a township transport route, or a growing fintech app:
+            there is movement everywhere, but the job is to spot <span class="memory">signal</span>, not noise.
+            Data analysis is about seeing the pattern beneath the pressure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis-types">
+      <div class="section-head">
+        <h2>The Six Ways You Read Data</h2>
+        <p>These came directly from the PDF and were simplified for memory.</p>
+      </div>
+      <div class="grid">
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>01</span>
+              <span>Descriptive Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> What happened?</p>
+            <ul>
+              <li>Summarises past data.</li>
+              <li>Uses averages, totals, distributions, charts.</li>
+              <li>Great for monthly sales, user counts, completions.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>02</span>
+              <span>Diagnostic Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> Why did it happen?</p>
+            <ul>
+              <li>Looks for drivers behind a result.</li>
+              <li>Compares variables and patterns.</li>
+              <li>Useful when sales drop or engagement falls.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>03</span>
+              <span>Predictive Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> What may happen next?</p>
+            <ul>
+              <li>Uses trends and models to estimate future outcomes.</li>
+              <li>Good for demand, churn, risk, or growth forecasts.</li>
+              <li>Think probability, not prophecy.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>04</span>
+              <span>Causal Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> What caused the change?</p>
+            <ul>
+              <li>Separates cause from simple correlation.</li>
+              <li>Often uses regression, tests, or experiments.</li>
+              <li>Useful for pricing, ads, onboarding, or product changes.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>05</span>
+              <span>Exploratory Data Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> What patterns are hiding here?</p>
+            <ul>
+              <li>Used early when a dataset is still unfamiliar.</li>
+              <li>Looks for outliers, trends, and strange behavior.</li>
+              <li>Often the place where strong questions begin.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-6" open>
+          <summary>
+            <div class="summary-title">
+              <span>06</span>
+              <span>Prescriptive Analysis</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <p><span class="memory">Question:</span> What should we do now?</p>
+            <ul>
+              <li>Turns findings into recommended action.</li>
+              <li>Useful for strategy, optimization, and next steps.</li>
+              <li>This is where data meets decision-making.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="skill-stack">
+      <div class="section-head">
+        <h2>Your Skill Stack</h2>
+        <p>Built from the BrightLight skills list, then translated into daily meaning.</p>
+      </div>
+      <div class="grid">
+        <div class="mini-card span-6">
+          <strong>Technical Skills</strong>
+          <ul>
+            <li><span class="memory">Data manipulation and cleaning</span></li>
+            <li><span class="memory">Statistical analysis</span></li>
+            <li><span class="memory">Data visualization</span></li>
+            <li><span class="memory">Programming</span></li>
+            <li><span class="memory">Database management</span></li>
+            <li><span class="memory">ETL and data integration</span></li>
+            <li><span class="memory">Version control</span></li>
+            <li><span class="memory">Business intelligence tools</span></li>
+          </ul>
+        </div>
+        <div class="mini-card span-6">
+          <strong>Soft Skills</strong>
+          <ul>
+            <li><span class="memory">Problem-solving</span></li>
+            <li><span class="memory">Attention to detail</span></li>
+            <li><span class="memory">Communication</span></li>
+            <li><span class="memory">Collaboration</span></li>
+            <li><span class="memory">Time management</span></li>
+            <li><span class="memory">Critical thinking</span></li>
+            <li><span class="memory">Adaptability</span></li>
+            <li><span class="memory">Curiosity and integrity</span></li>
+          </ul>
+        </div>
+        <div class="note span-12">
+          <strong>Fast Reminder</strong>
+          <p>
+            The best analysts are not only strong with tools. They know how to <span class="memory">ask the right question</span>,
+            <span class="memory">clean the mess</span>, <span class="memory">spot the pattern</span>,
+            and <span class="memory">explain it to humans</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="section-head">
+        <h2>Your Workflow In Motion</h2>
+        <p>This follows the process from the PDF, shortened for mobile recall.</p>
+      </div>
+      <div class="panel-band">
+        <div class="flow">
+          <span>Collect</span>
+          <span>Clean</span>
+          <span>Transform</span>
+          <span>Explore</span>
+          <span>Analyse</span>
+          <span>Visualise</span>
+          <span>Report</span>
+          <span>Recommend</span>
+        </div>
+        <p>
+          Your daily loop is simple: bring the data in, make it trustworthy, look for meaning, then help the business act.
+          A good analyst does not stop at charts. You stop when the answer is <span class="memory">clear enough to use</span>.
+        </p>
+      </div>
+      <div class="grid" style="margin-top:12px;">
+        <div class="mini-card span-4">
+          <strong>Collect + Clean</strong>
+          <p>Gather data from databases, spreadsheets, APIs, or surveys. Fix duplicates, missing values, and inconsistent labels.</p>
+        </div>
+        <div class="mini-card span-4">
+          <strong>Explore + Analyse</strong>
+          <p>Check structure, spot outliers, test ideas, compare groups, and build confidence in the patterns you find.</p>
+        </div>
+        <div class="mini-card span-4">
+          <strong>Report + Recommend</strong>
+          <p>Show the insight, explain the business effect, then suggest the next action in plain language.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="toolkit">
+      <div class="section-head">
+        <h2>Your Toolkit</h2>
+        <p>Directly drawn from the PDF tools section.</p>
+      </div>
+      <div class="grid">
+        <div class="mini-card span-3">
+          <strong>Core Tools</strong>
+          <div class="tag-row">
+            <span class="tag">Excel</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">R</span>
+          </div>
+        </div>
+        <div class="mini-card span-3">
+          <strong>Visual Tools</strong>
+          <div class="tag-row">
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+          </div>
+        </div>
+        <div class="mini-card span-3">
+          <strong>Databases</strong>
+          <div class="tag-row">
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SQL Server</span>
+          </div>
+        </div>
+        <div class="mini-card span-3">
+          <strong>Working Style</strong>
+          <div class="tag-row">
+            <span class="tag">Git/GitHub</span>
+            <span class="tag">Jupyter</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">Azure / AWS</span>
+          </div>
+        </div>
+        <div class="note span-12">
+          <strong>Best Mental Model</strong>
+          <p>
+            <span class="memory">SQL</span> gets the data.
+            <span class="memory">Excel / Python</span> helps you work through it.
+            <span class="memory">Power BI / Tableau</span> helps others see it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="career">
+      <div class="section-head">
+        <h2>Career Path</h2>
+        <p>Also based on the PDF, with clearer language.</p>
+      </div>
+      <div class="grid">
+        <details class="card span-4" open>
+          <summary>
+            <div class="summary-title">
+              <span>Stage 1</span>
+              <span>Junior Data Analyst</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <ul>
+              <li>Main work: collect, clean, and do basic analysis.</li>
+              <li>Focus: build confidence with tools and data quality.</li>
+              <li>Grow by becoming reliable.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-4" open>
+          <summary>
+            <div class="summary-title">
+              <span>Stage 2</span>
+              <span>Intermediate Data Analyst</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <ul>
+              <li>Main work: deeper analysis and cross-team collaboration.</li>
+              <li>Focus: explain trends and answer business questions.</li>
+              <li>Grow by becoming insightful.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="card span-4" open>
+          <summary>
+            <div class="summary-title">
+              <span>Stage 3</span>
+              <span>Senior Data Analyst</span>
+            </div>
+            <div class="arrow">▾</div>
+          </summary>
+          <div class="content">
+            <ul>
+              <li>Main work: lead projects and guide other analysts.</li>
+              <li>Focus: strategy, predictive work, and strong judgment.</li>
+              <li>Grow by becoming trusted.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="roots">
+      <div class="section-head">
+        <h2>Remember The Roots</h2>
+        <p>The manual part that keeps the work grounded.</p>
+      </div>
+      <div class="grid">
+        <div class="panel-band span-7">
+          <strong class="tiny-title">African Context</strong>
+          <p>
+            Data work is not only for big foreign tech firms. It matters in African realities too:
+            learner platforms, township logistics, mobile lending, health outreach, retail footfall, agri supply chains,
+            and public service delivery. The same analyst mindset works everywhere:
+            <span class="memory">see the pattern</span>, <span class="memory">protect the truth</span>,
+            and <span class="memory">help people decide better</span>.
+          </p>
+        </div>
+        <div class="note span-5">
+          <strong>Quick Examples</strong>
+          <ul>
+            <li>Which learning modules keep learners engaged?</li>
+            <li>Which route or branch has the biggest drop in sales?</li>
+            <li>Which customer group converts best after onboarding?</li>
+            <li>Where are the biggest drop-offs in a mobile journey?</li>
+          </ul>
+        </div>
+        <div class="note span-12">
+          <strong>Your Quiet Creed</strong>
+          <p class="big-line">
+            <span class="memory">Clean the signal.</span>
+            <span class="memory">Respect the people behind the numbers.</span>
+            <span class="memory">Tell the truth clearly.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>Source base:</strong> adapted from your local PDF,
+      <em>BrightLight Data Analytics facts.pdf</em>, then rewritten into a quicker, more human field manual for mobile use.
+      If you want, the next step is turning this into a full mini-site with a home page, glossary, and practice exercises.
+    </footer>
+  </div>
+</body>
+</html>
