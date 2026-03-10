@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyst Interview Prep Hub</title>
+    <meta
+      name="description"
+      content="A fast, practical interview prep website for data analyst, product analyst, BI, and SQL interviews."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header" id="top">
+      <div class="header-shell">
+        <div class="brand-block">
+          <p class="eyebrow">Analyst Interview Prep Hub</p>
+          <h1>Fast recall for analyst interviews</h1>
+          <p class="hero-copy">
+            Built for Data Analyst, Product Analyst, BI, and business-facing
+            analyst roles. Scan frameworks, sharpen your story, refresh SQL, and
+            practice speaking in concise business language.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#home">Start review</a>
+            <button class="button button-secondary" id="print-page" type="button">
+              Print / Save PDF
+            </button>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-stat">
+            <span class="stat-value">5</span>
+            <span class="stat-label">Core prep zones</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-value">10</span>
+            <span class="stat-label">Minute review loop</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-value">1</span>
+            <span class="stat-label">Clear mental map</span>
+          </div>
+        </div>
+      </div>
+      <nav class="top-nav" aria-label="Primary">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#data-analyst">Data Analyst</a>
+        <a class="nav-link" href="#sql">SQL</a>
+        <a class="nav-link" href="#product-metrics">Product Metrics</a>
+        <a class="nav-link" href="#case-study">Case Study</a>
+        <a class="nav-link" href="#power-bi">Power BI</a>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="section section-home" id="home">
+        <div class="section-heading">
+          <p class="section-tag">Homepage</p>
+          <h2>Interview prep with structure, not noise</h2>
+          <p>
+            Use this site like a memory wall. Review the section you need, scan
+            the cues, then practice the answer aloud in your own words.
+          </p>
+        </div>
+        <div class="search-panel card">
+          <label for="site-search">Search questions, metrics, SQL cues, or frameworks</label>
+          <div class="search-row">
+            <input
+              id="site-search"
+              type="search"
+              placeholder="Try: joins, retention, case study, dashboard, stakeholder"
+              autocomplete="off"
+            />
+            <button class="button button-primary" id="clear-search" type="button">
+              Clear
+            </button>
+          </div>
+          <p class="search-hint">
+            Filters all quick-review cards and accordions on the page.
+          </p>
+        </div>
+        <div class="card-grid nav-card-grid">
+          <a class="nav-card card" href="#data-analyst">
+            <span class="card-icon" aria-hidden="true">01</span>
+            <h3>Data Analyst Cheat Sheet</h3>
+            <p>Core interview questions, behavioural structure, and analyst mindset.</p>
+          </a>
+          <a class="nav-card card" href="#sql">
+            <span class="card-icon" aria-hidden="true">02</span>
+            <h3>SQL Interview Cheat Sheet</h3>
+            <p>Concept cues, syntax patterns, mini examples, and interview logic.</p>
+          </a>
+          <a class="nav-card card" href="#product-metrics">
+            <span class="card-icon" aria-hidden="true">03</span>
+            <h3>Product Metrics Cheat Sheet</h3>
+            <p>Funnel, engagement, retention, experimentation, and business metrics.</p>
+          </a>
+          <a class="nav-card card" href="#case-study">
+            <span class="card-icon" aria-hidden="true">04</span>
+            <h3>Case Study Framework</h3>
+            <p>How to structure a take-home, analysis story, or interview presentation.</p>
+          </a>
+          <a class="nav-card card" href="#power-bi">
+            <span class="card-icon" aria-hidden="true">05</span>
+            <h3>Power BI Dashboard Thinking</h3>
+            <p>Audience-first dashboard logic, visual choices, and interview talking points.</p>
+          </a>
+        </div>
+        <div class="two-column">
+          <article class="card">
+            <h3>How to Use This Site</h3>
+            <ul class="compact-list">
+              <li>Pick the section tied to the interview round.</li>
+              <li>Scan headings first, then the cue bullets.</li>
+              <li>Turn each cue into a spoken answer.</li>
+              <li>Use the search box to isolate weak areas.</li>
+              <li>Print to PDF for offline review if needed.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Interview Review Flow</h3>
+            <ol class="compact-list ordered">
+              <li>Scan your story.</li>
+              <li>Review frameworks.</li>
+              <li>Review SQL.</li>
+              <li>Review metrics.</li>
+              <li>Review dashboard thinking.</li>
+              <li>Practice aloud.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="data-analyst">
+        <div class="section-heading">
+          <p class="section-tag">01</p>
+          <h2>Data Analyst Cheat Sheet</h2>
+          <p>
+            Quick answer cues for common analyst interviews. Keep answers short,
+            structured, and tied to business decisions.
+          </p>
+        </div>
+        <div class="quick-links card">
+          <h3>Jump links</h3>
+          <div class="quick-link-list">
+            <a href="#da-frameworks">Answer frameworks</a>
+            <a href="#da-questions">Core questions</a>
+          </div>
+        </div>
+        <div class="card-grid framework-grid" id="da-frameworks">
+          <article class="card">
+            <h3>Tell Me About Yourself</h3>
+            <ul class="compact-list">
+              <li>Present: current role, training, or focus.</li>
+              <li>Past: relevant projects, tools, or domain exposure.</li>
+              <li>Strength: how you solve business questions with data.</li>
+              <li>Future: why this role is the right next step.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Behavioural Answer Frame</h3>
+            <ul class="compact-list">
+              <li>Situation: what was happening.</li>
+              <li>Task: what you needed to solve.</li>
+              <li>Action: what you did and why.</li>
+              <li>Result: metric, learning, or business effect.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Project Story Frame</h3>
+            <ul class="compact-list">
+              <li>Problem -> Data -> Analysis -> Insight -> Outcome</li>
+              <li>Problem: what decision needed support.</li>
+              <li>Data: sources, size, quality issues.</li>
+              <li>Outcome: action, impact, next step.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="accordion-list" id="da-questions">
+          <details class="accordion card" open data-searchable="tell me about yourself why analytics company fit">
+            <summary>Tell Me About Yourself</summary>
+            <div class="accordion-content">
+              <div class="qa-grid">
+                <article class="qa-item">
+                  <h4>1. Tell me about yourself.</h4>
+                  <p><strong>Quick answer clues:</strong> Present role, past experience, core tools, why analytics, why this role.</p>
+                  <p><strong>Memory prompts:</strong> Present -> past -> proof -> fit.</p>
+                </article>
+                <article class="qa-item">
+                  <h4>2. Why do you want to be a data analyst?</h4>
+                  <p><strong>Quick answer clues:</strong> Solve business questions, turn raw data into decisions, combine logic and communication.</p>
+                  <p><strong>Memory prompts:</strong> Curiosity, patterns, action, impact.</p>
+                </article>
+                <article class="qa-item">
+                  <h4>3. Why this company or team?</h4>
+                  <p><strong>Quick answer clues:</strong> Product, business model, customer problem, and where analytics can improve decisions.</p>
+                  <p><strong>Memory prompts:</strong> Product fit, mission, decision quality.</p>
+                </article>
+              </div>
+            </div>
+          </details>
+          <details class="accordion card" data-searchable="role workflow data cleaning eda sql basics business thinking">
+            <summary>Role, Workflow, and Technical Basics</summary>
+            <div class="accordion-content">
+              <div class="qa-grid">
+                <article class="qa-item"><h4>4. What does a data analyst do?</h4><p><strong>Quick answer clues:</strong> Define question, gather data, clean, analyze, communicate, recommend.</p><p><strong>Memory prompts:</strong> Question -> data -> insight -> action.</p></article>
+                <article class="qa-item"><h4>5. How is a data analyst different from a data scientist?</h4><p><strong>Quick answer clues:</strong> Analyst supports decisions and reporting; scientist often builds predictive models.</p><p><strong>Memory prompts:</strong> Decision support vs model building.</p></article>
+                <article class="qa-item"><h4>6. How do analysts create business value?</h4><p><strong>Quick answer clues:</strong> Better decisions, faster reporting, risk reduction, clearer trends, measurable opportunities.</p><p><strong>Memory prompts:</strong> Save time, reduce risk, grow results.</p></article>
+                <article class="qa-item"><h4>7. How do you approach a new dataset?</h4><p><strong>Quick answer clues:</strong> Clarify business question, inspect schema, assess quality, explore patterns, summarize findings.</p><p><strong>Memory prompts:</strong> Question first, structure first, quality first.</p></article>
+                <article class="qa-item"><h4>8. What steps are in a typical analysis workflow?</h4><p><strong>Quick answer clues:</strong> Ask, collect, clean, explore, analyze, visualize, recommend, validate.</p><p><strong>Memory prompts:</strong> End with action, not only charts.</p></article>
+                <article class="qa-item"><h4>9. How do you know an analysis is complete?</h4><p><strong>Quick answer clues:</strong> The question is answered, assumptions are clear, numbers reconcile, next actions are defined.</p><p><strong>Memory prompts:</strong> Answer, confidence, action.</p></article>
+                <article class="qa-item"><h4>10. How do you handle missing data?</h4><p><strong>Quick answer clues:</strong> Check why it is missing, measure impact, impute or exclude based on context, document choice.</p><p><strong>Memory prompts:</strong> Cause first, then treatment.</p></article>
+                <article class="qa-item"><h4>11. How do you deal with duplicates?</h4><p><strong>Quick answer clues:</strong> Identify row grain, use keys, confirm true duplicates, remove carefully, check counts after.</p><p><strong>Memory prompts:</strong> Grain, key, count check.</p></article>
+                <article class="qa-item"><h4>12. How do you treat outliers?</h4><p><strong>Quick answer clues:</strong> Investigate source, decide if valid behavior or error, explain effect on metrics.</p><p><strong>Memory prompts:</strong> Outlier is signal or noise.</p></article>
+                <article class="qa-item"><h4>13. What is EDA?</h4><p><strong>Quick answer clues:</strong> Early analysis to understand structure, distributions, trends, anomalies, and relationships.</p><p><strong>Memory prompts:</strong> Understand before concluding.</p></article>
+                <article class="qa-item"><h4>14. What do you check first in EDA?</h4><p><strong>Quick answer clues:</strong> Row count, columns, data types, missing values, date range, unique values.</p><p><strong>Memory prompts:</strong> Shape, type, quality, spread.</p></article>
+                <article class="qa-item"><h4>15. Why segment data?</h4><p><strong>Quick answer clues:</strong> Overall averages can hide user, region, channel, or product differences.</p><p><strong>Memory prompts:</strong> Overall can hide the story.</p></article>
+                <article class="qa-item"><h4>16. What is SQL used for in analyst work?</h4><p><strong>Quick answer clues:</strong> Pull data, join tables, aggregate metrics, clean values, build reporting datasets.</p><p><strong>Memory prompts:</strong> Pull, shape, summarize.</p></article>
+                <article class="qa-item"><h4>17. Difference between WHERE and HAVING?</h4><p><strong>Quick answer clues:</strong> WHERE filters rows before aggregation; HAVING filters groups after aggregation.</p><p><strong>Memory prompts:</strong> Before group vs after group.</p></article>
+                <article class="qa-item"><h4>18. Difference between INNER JOIN and LEFT JOIN?</h4><p><strong>Quick answer clues:</strong> INNER keeps matched rows only; LEFT keeps all left rows plus matches.</p><p><strong>Memory prompts:</strong> Match only vs keep left.</p></article>
+                <article class="qa-item"><h4>19. How do you choose the right metric?</h4><p><strong>Quick answer clues:</strong> Start from business objective, user behavior, decision owner, and actionability.</p><p><strong>Memory prompts:</strong> Objective before metric.</p></article>
+                <article class="qa-item"><h4>20. If revenue drops, where do you look first?</h4><p><strong>Quick answer clues:</strong> Volume, conversion, pricing, traffic source, product mix, date or tracking issues.</p><p><strong>Memory prompts:</strong> Break the metric into drivers.</p></article>
+                <article class="qa-item"><h4>21. What makes an insight useful?</h4><p><strong>Quick answer clues:</strong> It is true, relevant, understandable, and points to a decision or next step.</p><p><strong>Memory prompts:</strong> Insight must move action.</p></article>
+              </div>
+            </div>
+          </details>
+          <details class="accordion card" data-searchable="stakeholder communication dashboards kpis problem solving projects excel python product user data mindset">
+            <summary>Communication, Tools, Projects, and Analyst Mindset</summary>
+            <div class="accordion-content">
+              <div class="qa-grid">
+                <article class="qa-item"><h4>22. How do you explain findings to a non-technical audience?</h4><p><strong>Quick answer clues:</strong> Start with the business question, use plain language, show key numbers, end with implications.</p><p><strong>Memory prompts:</strong> Question, finding, implication, action.</p></article>
+                <article class="qa-item"><h4>23. What if a stakeholder disagrees with your analysis?</h4><p><strong>Quick answer clues:</strong> Clarify concern, review assumptions, check quality, compare interpretations, stay evidence-based.</p><p><strong>Memory prompts:</strong> Stay calm, check assumptions.</p></article>
+                <article class="qa-item"><h4>24. How often should you update stakeholders?</h4><p><strong>Quick answer clues:</strong> Match project pace and risk; share early if scope or findings change.</p><p><strong>Memory prompts:</strong> No surprises.</p></article>
+                <article class="qa-item"><h4>25. What makes a dashboard useful?</h4><p><strong>Quick answer clues:</strong> Clear audience, focused KPIs, logical layout, correct visuals, obvious next actions.</p><p><strong>Memory prompts:</strong> Built for decisions, not decoration.</p></article>
+                <article class="qa-item"><h4>26. How do you avoid dashboard clutter?</h4><p><strong>Quick answer clues:</strong> Limit visuals, remove low-value metrics, group related views, use whitespace and hierarchy.</p><p><strong>Memory prompts:</strong> Less noise, more signal.</p></article>
+                <article class="qa-item"><h4>27. How do you decide reporting frequency?</h4><p><strong>Quick answer clues:</strong> Match business rhythm, data freshness, and decision cadence.</p><p><strong>Memory prompts:</strong> Frequency should fit action speed.</p></article>
+                <article class="qa-item"><h4>28. What is a KPI?</h4><p><strong>Quick answer clues:</strong> A key metric tied directly to a business objective and tracked over time.</p><p><strong>Memory prompts:</strong> Key, objective-linked, monitored.</p></article>
+                <article class="qa-item"><h4>29. Leading vs lagging metrics?</h4><p><strong>Quick answer clues:</strong> Leading signals future outcomes; lagging confirms results after they happen.</p><p><strong>Memory prompts:</strong> Predict vs confirm.</p></article>
+                <article class="qa-item"><h4>30. Why define metrics carefully?</h4><p><strong>Quick answer clues:</strong> Different definitions create confusion, broken comparisons, and wrong decisions.</p><p><strong>Memory prompts:</strong> Same name can hide different logic.</p></article>
+                <article class="qa-item"><h4>31. How do you solve an ambiguous data problem?</h4><p><strong>Quick answer clues:</strong> Clarify goal, define success, list hypotheses, choose metrics, test in stages.</p><p><strong>Memory prompts:</strong> Reduce ambiguity step by step.</p></article>
+                <article class="qa-item"><h4>32. How do you do root cause analysis?</h4><p><strong>Quick answer clues:</strong> Break metric into drivers, segment, compare periods, check process or tracking changes.</p><p><strong>Memory prompts:</strong> Driver tree, slices, timeline.</p></article>
+                <article class="qa-item"><h4>33. What if data conflicts with intuition?</h4><p><strong>Quick answer clues:</strong> Recheck quality, definitions, and timing, then trust evidence with the right caveats.</p><p><strong>Memory prompts:</strong> Validate first, then conclude.</p></article>
+                <article class="qa-item"><h4>34. How do you describe a project on your resume?</h4><p><strong>Quick answer clues:</strong> Problem, tools, analysis, insight, outcome, and your exact contribution.</p><p><strong>Memory prompts:</strong> Be specific about your role.</p></article>
+                <article class="qa-item"><h4>35. What project are you most proud of?</h4><p><strong>Quick answer clues:</strong> Choose one with a clear problem, non-trivial analysis, and measurable impact or learning.</p><p><strong>Memory prompts:</strong> Depth over fancy tools.</p></article>
+                <article class="qa-item"><h4>36. What would you improve in a past project?</h4><p><strong>Quick answer clues:</strong> Better scoping, clearer metric definitions, more validation, stronger stakeholder alignment.</p><p><strong>Memory prompts:</strong> Show reflection, not regret.</p></article>
+                <article class="qa-item"><h4>37. Why is Excel still useful for analysts?</h4><p><strong>Quick answer clues:</strong> Fast checks, pivots, ad hoc review, business accessibility, simple modeling.</p><p><strong>Memory prompts:</strong> Quick, flexible, shared.</p></article>
+                <article class="qa-item"><h4>38. What spreadsheet skills matter most?</h4><p><strong>Quick answer clues:</strong> Lookups, IF logic, pivots, text cleaning, date handling, conditional formatting.</p><p><strong>Memory prompts:</strong> Find, summarize, clean, compare.</p></article>
+                <article class="qa-item"><h4>39. When would you move from Excel to SQL or BI?</h4><p><strong>Quick answer clues:</strong> Larger data, repeatable reporting, multi-table joins, collaboration, version control.</p><p><strong>Memory prompts:</strong> Scale and repeatability.</p></article>
+                <article class="qa-item"><h4>40. How is Python useful for analysts?</h4><p><strong>Quick answer clues:</strong> Cleaning, automation, repeatable analysis, statistical checks, wrangling, visualization.</p><p><strong>Memory prompts:</strong> Scale repetitive analysis.</p></article>
+                <article class="qa-item"><h4>41. What would you use pandas for?</h4><p><strong>Quick answer clues:</strong> Reading data, filtering, grouping, merging, reshaping, and quality checks.</p><p><strong>Memory prompts:</strong> Table work in code.</p></article>
+                <article class="qa-item"><h4>42. Why automate an analysis process?</h4><p><strong>Quick answer clues:</strong> Save time, reduce manual errors, improve consistency, free time for deeper analysis.</p><p><strong>Memory prompts:</strong> Repeat less, think more.</p></article>
+                <article class="qa-item"><h4>43. What would you analyze for a new feature launch?</h4><p><strong>Quick answer clues:</strong> Adoption, activation, engagement, retention, and guardrail metrics like churn.</p><p><strong>Memory prompts:</strong> Use, value, side effects.</p></article>
+                <article class="qa-item"><h4>44. How do you evaluate user drop-off?</h4><p><strong>Quick answer clues:</strong> Build funnel, quantify loss by step, segment users, compare periods, inspect friction.</p><p><strong>Memory prompts:</strong> Where, who, when, why.</p></article>
+                <article class="qa-item"><h4>45. What is retention?</h4><p><strong>Quick answer clues:</strong> The share of users who return or stay active after a defined time period.</p><p><strong>Memory prompts:</strong> Do users come back?</p></article>
+                <article class="qa-item"><h4>46. What makes a strong analyst?</h4><p><strong>Quick answer clues:</strong> Curiosity, structure, accuracy, business judgment, communication, follow-through.</p><p><strong>Memory prompts:</strong> Think clearly, check carefully, explain simply.</p></article>
+                <article class="qa-item"><h4>47. How do you balance speed and accuracy?</h4><p><strong>Quick answer clues:</strong> Start with the smallest reliable answer, validate key assumptions, then iterate.</p><p><strong>Memory prompts:</strong> Fast enough, but defensible.</p></article>
+                <article class="qa-item"><h4>48. What do you do when data is incomplete?</h4><p><strong>Quick answer clues:</strong> State limits, use the best available proxy, recommend improving collection.</p><p><strong>Memory prompts:</strong> Be honest about confidence.</p></article>
+                <article class="qa-item"><h4>49. How do you prioritize requests?</h4><p><strong>Quick answer clues:</strong> Business impact, urgency, stakeholder dependency, effort, and data readiness.</p><p><strong>Memory prompts:</strong> Impact over noise.</p></article>
+                <article class="qa-item"><h4>50. What should you always do before sharing results?</h4><p><strong>Quick answer clues:</strong> Recheck numbers, definitions, filters, date ranges, and question fit.</p><p><strong>Memory prompts:</strong> Validate before you present.</p></article>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="sql">
+        <div class="section-heading">
+          <p class="section-tag">02</p>
+          <h2>SQL Interview Cheat Sheet</h2>
+          <p>
+            Keep SQL explanations simple. Show logic, not only syntax. Think in
+            tables, row grain, filters, joins, and aggregation order.
+          </p>
+        </div>
+        <div class="card-grid framework-grid">
+          <article class="card">
+            <h3>How to Think Through an SQL Question</h3>
+            <ul class="compact-list">
+              <li>Define final output: rows, columns, grain.</li>
+              <li>Identify source tables and join keys.</li>
+              <li>Filter early where possible.</li>
+              <li>Aggregate only after the row set is correct.</li>
+              <li>Check duplicates and NULL impact.</li>
+              <li>Explain edge cases aloud.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Common SQL Patterns Analysts Use</h3>
+            <ul class="compact-list">
+              <li>Daily KPI trends</li>
+              <li>Top categories by metric</li>
+              <li>Funnel step counts</li>
+              <li>Retention cohorts</li>
+              <li>Latest status per user</li>
+              <li>Percent of total</li>
+            </ul>
+          </article>
+          <article class="card memory-wall">
+            <h3>SQL Cheat Memory Wall</h3>
+            <ul class="compact-list">
+              <li><strong>SELECT</strong> = choose columns</li>
+              <li><strong>WHERE</strong> = filter rows</li>
+              <li><strong>GROUP BY</strong> = summarize</li>
+              <li><strong>HAVING</strong> = filter after summarize</li>
+              <li><strong>INNER JOIN</strong> = matched rows</li>
+              <li><strong>LEFT JOIN</strong> = keep left rows</li>
+              <li><strong>CTE</strong> = named step</li>
+              <li><strong>WINDOW</strong> = calculate without collapsing rows</li>
+            </ul>
+          </article>
+        </div>
+        <div class="card-grid topic-grid">
+          <article class="card" data-searchable="select where distinct"><h3>SELECT / WHERE</h3><p><strong>Concept:</strong> Pull columns and filter rows.</p><p><strong>Memory cue:</strong> Start narrow. Only select what you need.</p><pre><code>SELECT user_id, country
+FROM users
+WHERE signup_date &gt;= '2026-01-01';</code></pre><p><strong>Mistake to avoid:</strong> Filtering after aggregation when `WHERE` should be used first.</p></article>
+          <article class="card" data-searchable="group by order by aggregation"><h3>GROUP BY / ORDER BY</h3><p><strong>Concept:</strong> Summarize rows, then sort output.</p><p><strong>Memory cue:</strong> Group first, order last.</p><pre><code>SELECT country, COUNT(*) AS users
+FROM users
+GROUP BY country
+ORDER BY users DESC;</code></pre><p><strong>Mistake to avoid:</strong> Selecting a non-aggregated column that is not in `GROUP BY`.</p></article>
+          <article class="card" data-searchable="joins inner left"><h3>JOINS</h3><p><strong>Concept:</strong> Combine tables using matching keys.</p><p><strong>Memory cue:</strong> INNER = matched records. LEFT = keep all left rows.</p><pre><code>SELECT o.order_id, c.customer_name
+FROM orders o
+LEFT JOIN customers c
+  ON o.customer_id = c.customer_id;</code></pre><p><strong>Mistake to avoid:</strong> Joining on the wrong grain and creating duplicates.</p></article>
+          <article class="card" data-searchable="case when"><h3>CASE WHEN</h3><p><strong>Concept:</strong> Create logic-based labels or buckets.</p><p><strong>Memory cue:</strong> CASE is SQL if-else.</p><pre><code>CASE
+  WHEN score &gt;= 80 THEN 'high'
+  WHEN score &gt;= 50 THEN 'mid'
+  ELSE 'low'
+END AS score_band</code></pre><p><strong>Mistake to avoid:</strong> Overlapping logic that puts rows in the wrong bucket.</p></article>
+          <article class="card" data-searchable="aggregate functions count sum avg"><h3>AGGREGATE FUNCTIONS</h3><p><strong>Concept:</strong> Reduce many rows into summary values.</p><p><strong>Memory cue:</strong> COUNT, SUM, AVG, MIN, MAX.</p><pre><code>SELECT COUNT(*) AS orders,
+       SUM(revenue) AS total_revenue
+FROM orders;</code></pre><p><strong>Mistake to avoid:</strong> Forgetting `COUNT(column)` ignores NULLs.</p></article>
+          <article class="card" data-searchable="having"><h3>HAVING</h3><p><strong>Concept:</strong> Filter grouped results.</p><p><strong>Memory cue:</strong> HAVING works after `GROUP BY`.</p><pre><code>SELECT country, COUNT(*) AS users
+FROM users
+GROUP BY country
+HAVING COUNT(*) &gt; 100;</code></pre><p><strong>Mistake to avoid:</strong> Using `HAVING` for row filters that belong in `WHERE`.</p></article>
+          <article class="card" data-searchable="subqueries"><h3>SUBQUERIES</h3><p><strong>Concept:</strong> Use one query inside another.</p><p><strong>Memory cue:</strong> Good for filtering or comparing to a derived set.</p><pre><code>SELECT user_id
+FROM users
+WHERE user_id IN (
+  SELECT user_id FROM orders
+);</code></pre><p><strong>Mistake to avoid:</strong> Writing a subquery when a join or CTE would be clearer.</p></article>
+          <article class="card" data-searchable="ctes with"><h3>CTEs</h3><p><strong>Concept:</strong> Break a query into named steps.</p><p><strong>Memory cue:</strong> CTE = readable staging area.</p><pre><code>WITH daily_orders AS (
+  SELECT order_date, COUNT(*) AS orders
+  FROM orders
+  GROUP BY order_date
+)
+SELECT * FROM daily_orders;</code></pre><p><strong>Mistake to avoid:</strong> Many unclear CTEs without a clean flow.</p></article>
+          <article class="card" data-searchable="window functions partition by"><h3>WINDOW FUNCTIONS</h3><p><strong>Concept:</strong> Calculate across related rows without collapsing them.</p><p><strong>Memory cue:</strong> Window keeps detail rows.</p><pre><code>SELECT user_id,
+       order_date,
+       SUM(revenue) OVER (
+         PARTITION BY user_id
+         ORDER BY order_date
+       ) AS running_revenue
+FROM orders;</code></pre><p><strong>Mistake to avoid:</strong> Confusing grouped output with windowed output.</p></article>
+          <article class="card" data-searchable="rank dense_rank row_number"><h3>RANK / DENSE_RANK / ROW_NUMBER</h3><p><strong>Concept:</strong> Number rows within a partition.</p><p><strong>Memory cue:</strong> `ROW_NUMBER` never ties. `RANK` skips. `DENSE_RANK` does not.</p><pre><code>ROW_NUMBER() OVER (
+  PARTITION BY country
+  ORDER BY revenue DESC
+)</code></pre><p><strong>Mistake to avoid:</strong> Forgetting tie behavior in top-N questions.</p></article>
+          <article class="card" data-searchable="date functions date_trunc"><h3>DATE FUNCTIONS</h3><p><strong>Concept:</strong> Group or compare time periods.</p><p><strong>Memory cue:</strong> Analysts often bucket by day, week, month.</p><pre><code>SELECT DATE_TRUNC('month', order_date) AS month,
+       SUM(revenue)
+FROM orders
+GROUP BY DATE_TRUNC('month', order_date);</code></pre><p><strong>Mistake to avoid:</strong> Comparing incomplete periods to full periods.</p></article>
+          <article class="card" data-searchable="null handling coalesce"><h3>NULL Handling</h3><p><strong>Concept:</strong> NULL means missing or unknown, not zero.</p><p><strong>Memory cue:</strong> Use `IS NULL`, not `= NULL`.</p><pre><code>SELECT COALESCE(discount, 0) AS discount
+FROM orders
+WHERE cancelled_at IS NULL;</code></pre><p><strong>Mistake to avoid:</strong> Treating NULL as a normal value.</p></article>
+          <article class="card" data-searchable="distinct union union all"><h3>DISTINCT / UNION vs UNION ALL</h3><p><strong>Concept:</strong> `DISTINCT` removes duplicate rows. `UNION` removes duplicates across queries. `UNION ALL` keeps all rows.</p><p><strong>Memory cue:</strong> Duplicate removal costs work.</p><pre><code>SELECT DISTINCT country FROM users;
+SELECT city FROM a
+UNION ALL
+SELECT city FROM b;</code></pre><p><strong>Mistake to avoid:</strong> Using `UNION` when duplicates are acceptable and performance matters.</p></article>
+          <article class="card" data-searchable="primary key foreign key"><h3>Primary Key / Foreign Key Basics</h3><p><strong>Concept:</strong> Primary key uniquely identifies a row. Foreign key links to another table.</p><p><strong>Memory cue:</strong> Key logic prevents bad joins.</p><p><strong>Mistake to avoid:</strong> Assuming uniqueness without checking it.</p></article>
+          <article class="card" data-searchable="data cleaning sql trim lower"><h3>Data Cleaning with SQL</h3><p><strong>Concept:</strong> Standardize text, handle blanks, cast types, remove duplicates.</p><p><strong>Memory cue:</strong> Clean before trusting counts.</p><pre><code>SELECT TRIM(LOWER(email)) AS clean_email
+FROM users;</code></pre><p><strong>Mistake to avoid:</strong> Mixing blank strings and NULLs without normalization.</p></article>
+          <article class="card" data-searchable="kpi calculations sql conversion retention arpu"><h3>KPI Calculations in SQL</h3><p><strong>Concept:</strong> Turn user actions into ratios and trends.</p><p><strong>Memory cue:</strong> Numerator, denominator, period, grain.</p><pre><code>SELECT
+  COUNT(DISTINCT purchaser_id) * 1.0
+  / COUNT(DISTINCT visitor_id) AS conversion_rate
+FROM funnel_daily;</code></pre><p><strong>Mistake to avoid:</strong> Mixing time periods or mismatched denominators.</p></article>
+        </div>
+        <article class="card prompt-wall">
+          <h3>SQL Interview Prompts</h3>
+          <div class="prompt-grid">
+            <span>Find the top 3 products by revenue.</span><span>Count daily active users by date.</span><span>Show customers with no orders.</span><span>Calculate month-over-month growth.</span><span>Find duplicate emails.</span><span>Get the latest order per user.</span><span>Compute conversion rate by channel.</span><span>Rank stores by weekly sales.</span><span>Find users active in both months.</span><span>Calculate rolling 7-day revenue.</span><span>Bucket users by session count.</span><span>Compare pre vs post launch metrics.</span><span>Find first purchase date per customer.</span><span>Measure drop-off at each funnel step.</span><span>Calculate average order value.</span><span>Identify churned subscriptions.</span><span>Find share of revenue by category.</span><span>Show retention by signup cohort.</span><span>Flag null or invalid records.</span><span>List users with repeat purchases.</span><span>Compute feature adoption rate.</span><span>Compare median-like behavior using ranks.</span><span>Find peak traffic hour.</span><span>Clean inconsistent country labels.</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="product-metrics">
+        <div class="section-heading">
+          <p class="section-tag">03</p>
+          <h2>Product Metrics Cheat Sheet</h2>
+          <p>
+            Product analytics is about behavior, value, and change over time.
+            Tie every metric back to the user journey and product objective.
+          </p>
+        </div>
+        <div class="card-grid framework-grid">
+          <article class="card"><h3>Core Metric Frame</h3><ul class="compact-list"><li>Objective -> Metric -> Trend -> Insight -> Recommendation</li><li>Observation -> Insight -> Recommendation</li></ul></article>
+          <article class="card"><h3>North Star Metric</h3><ul class="compact-list"><li>One metric that best reflects delivered user value.</li><li>Should connect user success and business growth.</li><li>Needs guardrails to avoid unhealthy optimization.</li></ul></article>
+          <article class="card"><h3>Guardrail Metrics</h3><ul class="compact-list"><li>Metrics that protect quality while chasing growth.</li><li>Examples: churn, complaint rate, latency, cancellation rate.</li><li>They answer: are we growing the right way?</li></ul></article>
+        </div>
+        <div class="card-grid topic-grid">
+          <article class="card" data-searchable="product objective"><h3>Product Objective</h3><ul class="compact-list"><li><strong>Question:</strong> What user or business outcome are we trying to improve?</li><li><strong>Examples:</strong> Increase activation, reduce churn, improve course completion.</li><li><strong>Why it matters:</strong> Metrics without an objective create noise.</li></ul></article>
+          <article class="card" data-searchable="user journey awareness signup activation engagement retention"><h3>User Journey</h3><ul class="compact-list"><li>Awareness -> signup -> activation -> engagement -> retention -> referral or revenue.</li><li>Ask where value starts and where friction appears.</li><li>A drop suggests a journey problem, not just a metric problem.</li></ul></article>
+          <article class="card" data-searchable="funnel metrics signup activation conversion"><h3>Funnel Metrics</h3><ul class="compact-list"><li><strong>Sign-up rate:</strong> visitors who register.</li><li><strong>Activation rate:</strong> new users who reach first value.</li><li><strong>Drop-off rate:</strong> users lost at a step.</li><li><strong>Increase suggests:</strong> better clarity or less friction.</li><li><strong>Drop suggests:</strong> poor onboarding, bugs, weak intent, or tracking issues.</li></ul></article>
+          <article class="card" data-searchable="engagement metrics dau wau mau stickiness session frequency feature adoption"><h3>Engagement Metrics</h3><ul class="compact-list"><li><strong>DAU / WAU / MAU:</strong> active users by period.</li><li><strong>Stickiness:</strong> DAU / MAU.</li><li><strong>Session frequency:</strong> how often users return.</li><li><strong>Feature adoption:</strong> share of users who use a feature.</li><li><strong>Rise may mean:</strong> stronger value or better relevance.</li><li><strong>Drop may mean:</strong> weak usefulness, fatigue, or usability issues.</li></ul></article>
+          <article class="card" data-searchable="retention churn cohorts"><h3>Retention Metrics</h3><ul class="compact-list"><li><strong>Retention rate:</strong> users who come back after a period.</li><li><strong>Churn:</strong> users who leave or stop being active.</li><li><strong>Cohort retention:</strong> compare user groups by signup date.</li><li><strong>Strong retention means:</strong> product keeps delivering value.</li><li><strong>Weak retention suggests:</strong> poor activation, low fit, or unmet expectations.</li></ul></article>
+          <article class="card" data-searchable="conversion completion purchase"><h3>Conversion Metrics</h3><ul class="compact-list"><li><strong>Conversion rate:</strong> users who complete the desired action.</li><li><strong>Completion rate:</strong> users who finish a process or content flow.</li><li><strong>Cart-to-purchase or lead-to-paid:</strong> indicates execution quality.</li><li><strong>Drop may suggest:</strong> friction, trust issues, price, or broken flow.</li></ul></article>
+          <article class="card" data-searchable="revenue business metrics arpu cac ltv"><h3>Revenue / Business Metrics</h3><ul class="compact-list"><li><strong>Revenue per user:</strong> average revenue from each user.</li><li><strong>CAC:</strong> customer acquisition cost.</li><li><strong>LTV:</strong> lifetime value.</li><li><strong>Why it matters:</strong> Growth is stronger when value exceeds acquisition cost.</li><li><strong>Watch for:</strong> growth that looks good but is too expensive.</li></ul></article>
+          <article class="card" data-searchable="learner platform metrics marketplace"><h3>Learner / Platform Metrics</h3><ul class="compact-list"><li><strong>Completion rate:</strong> how many learners finish content.</li><li><strong>Time to first value:</strong> how quickly users get useful output.</li><li><strong>Content return rate:</strong> whether users come back to learn more.</li><li><strong>Marketplace thinking:</strong> balance supply, demand, fill rate, and repeat behavior.</li></ul></article>
+          <article class="card" data-searchable="experimentation ab test"><h3>Experimentation Basics</h3><ul class="compact-list"><li>Start with a clear hypothesis and primary metric.</li><li>Use guardrails so wins do not hide damage elsewhere.</li><li>Check sample size, duration, and segment effects.</li><li>A result can be statistically valid but still not strategically useful.</li></ul></article>
+          <article class="card" data-searchable="product insight formula"><h3>Product Insight Formula</h3><ul class="compact-list"><li><strong>Observation:</strong> activation fell 8% week over week.</li><li><strong>Insight:</strong> most loss came from mobile users at the profile step.</li><li><strong>Recommendation:</strong> simplify the step and validate with an experiment.</li></ul></article>
+          <article class="card" data-searchable="nps csat satisfaction"><h3>Satisfaction Metrics</h3><ul class="compact-list"><li><strong>NPS:</strong> willingness to recommend.</li><li><strong>CSAT:</strong> satisfaction after a touchpoint.</li><li><strong>Why it matters:</strong> behavior tells what users did; sentiment helps explain why.</li></ul></article>
+          <article class="card" data-searchable="trend reading increase decrease"><h3>Trend Reading</h3><ul class="compact-list"><li>A metric rise is not always good. Check quality and guardrails.</li><li>A metric drop is not always bad. It could reflect a cleaner definition or lower spam.</li><li>Always ask: compared to what, for whom, and since when?</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section" id="case-study">
+        <div class="section-heading">
+          <p class="section-tag">04</p>
+          <h2>Case Study Framework</h2>
+          <p>
+            In a case study, structure matters as much as the analysis. Show how
+            you think, what you checked, what you found, and what should happen next.
+          </p>
+        </div>
+        <div class="card-grid framework-grid">
+          <article class="card"><h3>Main Framework</h3><ul class="compact-list"><li>Problem -> Data -> Analysis -> Insight -> Recommendation</li><li>Objective -> KPI -> Breakdown -> Findings -> Action</li><li>Question -> Metric -> Slice -> Compare -> Explain -> Recommend</li><li>Observation -> So What -> Now What</li></ul></article>
+          <article class="card"><h3>If Given a Dataset, Start Here</h3><ul class="compact-list"><li>Clarify the business question.</li><li>Check row count, columns, keys, date range.</li><li>Confirm grain and definitions.</li><li>Look for missing data and duplicates.</li><li>Only then start deeper analysis.</li></ul></article>
+          <article class="card"><h3>Strong Presentation Phrases</h3><ul class="compact-list"><li>The data suggests...</li><li>One possible driver is...</li><li>This matters because...</li><li>A practical next step would be...</li><li>I would validate this by...</li></ul></article>
+        </div>
+        <div class="card-grid topic-grid">
+          <article class="card" data-searchable="understanding problem"><h3>Understand the Problem</h3><ul class="compact-list"><li>What decision needs support?</li><li>Who is the stakeholder?</li><li>What does success mean?</li><li>What constraints matter?</li></ul></article>
+          <article class="card" data-searchable="choose right kpis"><h3>Choose the Right KPIs</h3><ul class="compact-list"><li>Pick one primary KPI tied to the objective.</li><li>Add supporting metrics for drivers.</li><li>Add guardrail metrics to avoid one-sided conclusions.</li></ul></article>
+          <article class="card" data-searchable="data quality checks"><h3>Check Data Quality</h3><ul class="compact-list"><li>Look for missing values, duplicates, and broken joins.</li><li>Check date coverage and tracking changes.</li><li>Call out quality risks early.</li></ul></article>
+          <article class="card" data-searchable="segmenting compare groups"><h3>Segment the Data</h3><ul class="compact-list"><li>Slice by user type, region, channel, device, or product line.</li><li>Segmentation often reveals the real story.</li><li>Do not rely on one overall average.</li></ul></article>
+          <article class="card" data-searchable="trends anomalies"><h3>Find Trends and Anomalies</h3><ul class="compact-list"><li>Compare periods over time.</li><li>Look for spikes, drops, seasonality, and breaks in pattern.</li><li>Ask what changed operationally or in product.</li></ul></article>
+          <article class="card" data-searchable="compare groups benchmarks"><h3>Compare Groups or Periods</h3><ul class="compact-list"><li>Before vs after</li><li>Control vs treatment</li><li>New vs returning users</li><li>High vs low-performing segments</li></ul></article>
+          <article class="card" data-searchable="funnel journey"><h3>Check the User Journey</h3><ul class="compact-list"><li>Map the funnel from entry to outcome.</li><li>Find the biggest drop-off step.</li><li>Ask whether the problem is acquisition, onboarding, or retention.</li></ul></article>
+          <article class="card" data-searchable="business implication recommendation"><h3>Draw Business Implications</h3><ul class="compact-list"><li>Translate numbers into business meaning.</li><li>Say who is affected and why it matters.</li><li>Keep recommendations realistic and scoped.</li></ul></article>
+          <article class="card" data-searchable="present clearly stakeholders"><h3>Present Clearly to Stakeholders</h3><ul class="compact-list"><li>Lead with the answer, not the process.</li><li>Use only the visuals that support the story.</li><li>Close with decisions and next steps.</li></ul></article>
+        </div>
+        <div class="two-column">
+          <article class="card"><h3>5-Slide Presentation Structure</h3><ol class="compact-list ordered"><li>Business problem and objective</li><li>Data and method</li><li>Key findings</li><li>Insight and business meaning</li><li>Recommendation and next step</li></ol></article>
+          <article class="card"><h3>7-Step Checklist Before Presenting</h3><ol class="compact-list ordered"><li>Recheck metric definitions.</li><li>Confirm date ranges.</li><li>Validate totals against source logic.</li><li>Check segment comparisons.</li><li>Remove clutter from slides.</li><li>Prepare one recommendation.</li><li>Prepare one validation step.</li></ol></article>
+        </div>
+        <article class="card">
+          <h3>Common Mistakes in Case Study Interviews</h3>
+          <div class="prompt-grid">
+            <span>Jumping into charts before clarifying the question</span><span>Using too many metrics without one main KPI</span><span>Ignoring data quality issues</span><span>Stopping at description without insight</span><span>Giving vague recommendations</span><span>Forgetting stakeholder context</span><span>Overclaiming certainty</span><span>Presenting too much detail too early</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="power-bi">
+        <div class="section-heading">
+          <p class="section-tag">05</p>
+          <h2>Power BI Dashboard Thinking</h2>
+          <p>
+            Interviewers are usually testing thinking, not buttons. Show that you
+            can design for audience, business questions, and action.
+          </p>
+        </div>
+        <div class="card-grid framework-grid">
+          <article class="card"><h3>Dashboard Story Formula</h3><ul class="compact-list"><li>What happened -> Why it matters -> What to do next</li><li>Good dashboards support this story at a glance.</li></ul></article>
+          <article class="card"><h3>What Should Every Dashboard Answer?</h3><ul class="compact-list"><li>What is happening now?</li><li>How is it changing over time?</li><li>Where is the biggest issue or opportunity?</li><li>Which segment needs attention?</li><li>What action should follow?</li></ul></article>
+          <article class="card"><h3>How to Explain a Dashboard to a Manager</h3><ul class="compact-list"><li>Start with the objective.</li><li>Point to headline KPIs.</li><li>Show the main trend.</li><li>Highlight one key breakdown.</li><li>End with decision options.</li></ul></article>
+        </div>
+        <div class="card-grid topic-grid">
+          <article class="card" data-searchable="before you build dashboard purpose audience"><h3>Before You Build</h3><ul class="compact-list"><li>Who will use it?</li><li>What decisions will it support?</li><li>What are the non-negotiable KPIs?</li><li>How fresh does the data need to be?</li></ul></article>
+          <article class="card" data-searchable="layout logic visual hierarchy"><h3>Dashboard Layout Logic</h3><ul class="compact-list"><li>Top: KPI cards for the headline view.</li><li>Middle: trend charts for movement over time.</li><li>Bottom: breakdowns, tables, or root cause views.</li><li>Side or top: filters only if they help decisions.</li></ul></article>
+          <article class="card" data-searchable="audience first design"><h3>Audience-First Design</h3><ul class="compact-list"><li>Executives want summary and movement.</li><li>Managers want breakdowns and operational drivers.</li><li>Analysts may need detail tables and drill-downs.</li></ul></article>
+          <article class="card" data-searchable="kpi cards trends breakdowns filters insights actions"><h3>Dashboard Building Blocks</h3><ul class="compact-list"><li>KPI cards: headline numbers</li><li>Trends: change over time</li><li>Breakdowns: compare categories</li><li>Filters / slicers: focus the view</li><li>Insights: annotate what matters</li><li>Actions: point to next steps</li></ul></article>
+          <article class="card" data-searchable="best visuals line bar stacked card table scatter pie"><h3>Best Visual Choices</h3><ul class="compact-list"><li>Line chart = trend over time</li><li>Bar chart = compare categories</li><li>Stacked bar = composition</li><li>Card = headline KPI</li><li>Table = detailed lookup</li><li>Scatter = relationship between variables</li><li>Avoid pie charts unless categories are few and obvious.</li></ul></article>
+          <article class="card" data-searchable="filters slicers dashboard"><h3>Filters / Slicers Thinking</h3><ul class="compact-list"><li>Use only filters people will actually need.</li><li>Do not overload with every possible field.</li><li>Default states should still tell a useful story.</li></ul></article>
+          <article class="card" data-searchable="storytelling dashboards"><h3>Storytelling with Dashboards</h3><ul class="compact-list"><li>Show the KPI.</li><li>Show the trend.</li><li>Show the segment driving the change.</li><li>Add a short insight note.</li></ul></article>
+          <article class="card" data-searchable="dashboard mistakes clutter"><h3>Dashboard Mistakes to Avoid</h3><ul class="compact-list"><li>Too many visuals on one screen</li><li>Weak hierarchy and tiny text</li><li>Unclear metric definitions</li><li>Too many colors competing for attention</li><li>Decorative charts without a decision purpose</li></ul></article>
+          <article class="card" data-searchable="power bi interview talking points"><h3>Power BI Interview Talking Points</h3><ul class="compact-list"><li>Start from audience and business questions.</li><li>Explain KPI selection and layout choices.</li><li>Mention data model quality and refresh reliability.</li><li>Show that visuals were chosen for interpretation speed.</li></ul></article>
+          <article class="card" data-searchable="common dashboard interview questions"><h3>Common Dashboard Interview Questions</h3><div class="prompt-grid compact-prompts"><span>How do you design for executives?</span><span>How do you choose KPI cards?</span><span>What chart would you use for category comparison?</span><span>How do you avoid clutter?</span><span>How do you explain a dashboard to a manager?</span><span>What would you improve in a bad dashboard?</span></div></article>
+          <article class="card" data-searchable="dashboard sections product sales operations learning platform"><h3>Example Dashboard Sections</h3><ul class="compact-list"><li><strong>Product:</strong> activation, retention, feature adoption, funnel drop-off</li><li><strong>Sales:</strong> revenue, conversion, average order value, top regions</li><li><strong>Operations:</strong> turnaround time, backlog, SLA, issue volume</li><li><strong>Learning platform:</strong> enrollments, completion, active learners, lesson drop-off</li></ul></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Analyst Interview Prep Hub. Built for quick review, clear thinking, and strong interview delivery.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      ^
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>
